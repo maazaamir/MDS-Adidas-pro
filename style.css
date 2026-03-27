@@ -30,7 +30,66 @@ body {
     opacity: 0.2;
     z-index: -1;
 }
+/* Header Styling */
+.mds-header {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+}
 
+.project-num {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    padding: 4px 12px;
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    background: rgba(0, 127, 255, 0.05);
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #fff 50%, #666 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.accent-text {
+    -webkit-text-stroke: 1px #fff;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.5;
+}
+
+.sub-text {
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+/* Ensure the Bento Container has enough space below the header */
+.bento-container {
+    margin-top: 120px;
+}
+
+/* Tablet/Mobile Adjustments */
+@media (max-width: 768px) {
+    .main-title { font-size: 2.5rem; }
+    .mds-header { top: 30px; }
+}
 .bento-container {
     display: grid;
     grid-template-columns: repeat(4, 160px);
@@ -38,7 +97,13 @@ body {
     gap: 20px;
     perspective: 1200px;
 }
-
+@media (max-width: 500px) {
+    body { height: auto; padding: 40px 0; overflow-y: auto; }
+    .main-title { font-size: 2rem; }
+    .bento-container { grid-template-columns: 1fr; width: 90%; }
+    .hero, .sm, .sm:nth-child(3), .md, .product-card { grid-area: auto; min-height: 200px; }
+    .bento-item { transform: none !important; }
+}
 .bento-item {
     background: var(--card);
     border: 1px solid var(--border);
